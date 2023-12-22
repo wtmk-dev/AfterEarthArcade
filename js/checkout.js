@@ -4,12 +4,11 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-function onclick_purchase()
-{
+function onclick_purchase(quantity) {
     const checkoutForm = document.getElementById('checkoutForm');
     checkoutForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
-        
+
         // Fetch POST request to your endpoint or URL
         fetch('https://aea-cmd-d3d2a4510890.herokuapp.com/checkout', {
             method: 'POST',
@@ -18,9 +17,8 @@ function onclick_purchase()
                 // Add any additional headers if required
             },
             body: JSON.stringify({
-                // Add data you want to send in the request body
-                // For instance, you might send the quantity or other checkout data
-                // Example: quantity: quantity
+                quantity: quantity // Sending the quantity in the request body
+                // You can add more data if needed
             })
         })
         .then(response => {
@@ -43,25 +41,8 @@ function onclick_purchase()
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to extract query parameter from URL
-    function getQueryParam(param) {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        return urlParams.get(param);
-    }
-
     const quantity = getQueryParam('quantity');
     console.log('Quantity:', quantity);
 
     const totalXP = quantity * 100; // Calculate total XP
-    const totalPrice = quantity * 1; // Calculate total price ($1 per quantity)
-
-    const message = `You are about to purchase ${quantity} of 100xp, totaling $${totalPrice}`;
-    const messageElement = document.createElement('p');
-    messageElement.textContent = message;
-
-    const checkoutForm = document.getElementById('checkoutForm');
-    checkoutForm.insertAdjacentElement('afterend', messageElement);
-
-    onclick_purchase();
-});
+    const totalPrice = quantity * 1;
