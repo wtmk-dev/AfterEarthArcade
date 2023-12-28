@@ -1,16 +1,15 @@
 function navigateToPage(page) {
-    window.location.href = page; // Redirects to the specified page
+    window.location.href = page;
 }
 
-function handlePurchaseClick() {
-    var quantityValue = document.getElementById('quantity').value;
-    var checkoutURL = 'checkout.html?quantity=' + encodeURIComponent(quantityValue);
-    navigateToPage(checkoutURL); // Call the function with the page name
+function onclick_sighIn() {
+        var url = 'checkout.html';
+        navigateToPage(url);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var purchaseButton = document.getElementById('purchase');
+    var purchaseButton = document.getElementById('signin');
     if (purchaseButton) {
-        purchaseButton.addEventListener('click', handlePurchaseClick);
+        purchaseButton.addEventListener('click', onclick_sighIn);
     }
 });
