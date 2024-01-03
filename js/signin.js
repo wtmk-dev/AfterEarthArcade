@@ -13,7 +13,7 @@ function onclick_register()
         email: emailValue,
     }
 
-    fectch('https://aea-cmd-d3d2a4510890.herokuapp.com/', 
+    fectch('https://aea-cmd-d3d2a4510890.herokuapp.com/reg', 
     {
         method: 'POST',
         headers: 
