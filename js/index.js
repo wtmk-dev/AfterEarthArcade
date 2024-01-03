@@ -3,7 +3,7 @@ function navigateToPage(page) {
 }
 
 function onclick_sighIn() {
-        var url = 'checkout.html';
+        var url = 'signIn.html';
         navigateToPage(url);
 }
 

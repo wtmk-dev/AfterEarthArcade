@@ -1,5 +1,5 @@
 function navigateToPage(page) {
-    window.location.href = page; // Redirects to the specified page
+    window.location.href = page;
 }
 
 function handlePurchaseClick() {
